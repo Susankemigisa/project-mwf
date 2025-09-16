@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const StockModel = require("../models/stockModel")
+const StockModel = require("../models/stockModel");
+const { default: mongoose } = require("mongoose");
 
 router.get("/Addstock",(req, res) =>{
   res.render("registerStock", {title: "stock page"});
@@ -44,23 +45,23 @@ router.post("/deletestock", async(req, res)=>{
   }
 })
 // updatingstock
-router.get('/editstock/:id', async (req, res)=>{
-    let item = await StockModel.findById(req.params.id);
-    // console.log(item)
-  res.render("editStock", {item, title: "Edit Stock page"})
-});
-router.put('/editstock/:id',async (req, res)=>{
+router.get('/editstock/:id', async (req, res) => {
   try {
-    console.log(req.params.id)
-    const stock = await StockModel.findByIdAndUpdate(req.params.id, req.body,{ new: true});
-    console.log(stock)
-    // if(!stock){
-    //   return res.status(404).send("Product not found")
-    // }
-    // res.redirect("/stocklist")
+      const item = await StockModel.findById(req.params.id)
+      console.log(item._id)
+  res.render("editStock", {item})
   } catch (error) {
-    
+    console.error(error)
   }
-})
+});
+router.put('/editstock/:id', async (req, res) => {
+  try {
+    const stock = await StockModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    if (!stock) return res.status(404).send("Item not found");
+    res.redirect("/stocklist");
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
 
 module.exports = router;
