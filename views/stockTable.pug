@@ -1,0 +1,79 @@
+meta(charset="UTF-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+title MWF Stock List
+link(rel="stylesheet", href="/css/stockTable.css")
+script(src="https://cdn.jsdelivr.net/npm/chart.js")
+//-  Navigation Bar 
+nav.navbar
+  .container
+    a.logo(href="#") MWF System
+    ul.nav-links
+      li
+        a(href="login.html") Login
+      li
+        a(href="registerStock.html") Register Stock
+      li
+        a(href="sales.html") Sales
+      li
+        a(href="managerReport.html") Reports
+      li
+        a(href="managerDashboard.html") Dashboard
+      li
+        a(href="settings.html") Settings
+      li
+        a(href="salesTable.html") View Sales
+      li
+        a(href="registeredUsers.html") View Users
+      li
+        a(href="products.html") Products
+      li
+        a.active(href="availableProducts.html") Available products
+      li
+        button#logoutBtn.logout-btn Log Out
+//-  Stock List 
+.container
+  .stock-list
+    h2 Registered Stock
+    table#stockTable
+      thead
+        tr
+          th Product Name
+          th Product Type
+          th Supplier Name
+          th Date
+          th Quantity
+          th Cost Price
+          th Selling Price
+          th Quality
+          th Color
+          th Measurements
+          th Actions
+      tbody
+        if items.length
+          each item in items
+            tr
+              td #{item.productName}
+              td #{item.productType}
+              td #{item.supplierName}
+              td #{moment(item.Date).format("DD-MM-YYYY")}
+              td #{item.quantity}
+              td #{item.costPrice}
+              td #{item.sellingPrice}
+              td #{item.quality}
+              td #{item.color}
+              td #{item.measurements}
+              td
+                a.btn.btn-warning(href=`/editstock/${item._id}`) Edit
+  a.btn.btn-dark.mt-3(href='/Addstock') Add Stock
+        //-  Filled by JavaScript 
+  //-  Stock Charts 
+  //- .charts
+  //-   .chart-card
+  //-     h2 Stock Levels by Product
+  //-     canvas#stockLevelsChart(height="200")
+  //-   .chart-card
+  //-     h2 Low Stock Items (≤5 units)
+  //-     canvas#lowStockChart(height="200")
+script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
+//-  Script 
+script(src="/js/stockTable.js")

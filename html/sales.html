@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MWF Sales Registration</title>
+  <link rel="stylesheet" href="/css/sales.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">MWF System</a>
+      <ul class="nav-links">
+        <li><a href="login.html">Login</a></li>
+        <li><a href="registerStock.html">Register Stock</a></li>
+        <li><a href="stockTable.html" class="active">View Stock</a></li>
+        <li><a href="managerReport.html">Reports</a></li>
+        <li><a href="managerDashboard.html">Dashboard</a></li>
+        <li><a href="settings.html">Settings</a></li>
+        <li><a href="salesTable.html"  class="active">View sales</a></li>
+        <li><a href="registeredUsers.html" class="active">View users</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="availableProducts.html"  class="active">Available products</a></li>
+        <li><button id="logoutBtn" class="logout-btn">Log Out</button></li>
+ </ul>
+    </div>
+  </nav>
+
+  <!-- Sales Registration Form -->
+  <div class="container">
+    <div class="form-card">
+      <h2>Register New Sale</h2>
+      <form id="salesForm" action="/recordSales" method="post">
+        <label>Customer Name</label>
+        <input type="text" id="customerName" name="customerName" required>
+
+        <label>Product Name</label>
+        <input type="text" id="productName" name="productName" required>
+
+        <label>Quantity</label>
+        <input type="number" id="quantity" name="quantity" min="1" required>
+
+        <label>Price (per unit)</label>
+        <input type="number" id="price" name="price" step="0.01" required>
+
+        <label>Date</label>
+        <input type="date" id="date" required>
+
+        <label>Payment Type</label>
+        <select id="paymentType" name="paymentType" required>
+          <option value="">Select payment type</option>
+          <option value="Cash">Cash</option>
+          <option value="Cheque">Cheque</option>
+          <option value="Bank transfer">Bank Transfer</option>
+        </select>
+
+        <label>Sales Agent</label>
+        <input type="text" id="salesAgent" name="salesAgent" required>
+
+        <label>
+          <input type="checkbox" id="transport" name="transport"> Include Transport (5%)
+        </label>
+
+        <button type="submit">Save Sale</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/sales.js"></script>
+</body>
+</html>

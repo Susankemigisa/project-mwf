@@ -1,0 +1,73 @@
+/* Background */
+body {
+ background: #06351f; 
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Card */
+.card {
+  border: none;
+  background: #5b3a29;
+  max-width: 400px;
+  margin: 50px auto;
+  border-radius: 12px;
+}
+
+/* Title */
+.card h2 {
+  font-weight: 700;
+  color:#708090;
+  text-align: center;
+}
+
+/* Labels */
+.form-label {
+  font-weight: 500;
+  color:#708090;
+}
+
+/* Inputs */
+.form-control,
+.form-select {
+  border-radius: 0.75rem;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  transition: 0.3s;
+  background-color: antiquewhite;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #198754;
+  box-shadow: 0 0 6px rgba(25, 135, 84, 0.4);
+}
+
+/* Button */
+.btn-success {
+  border-radius: 0.75rem;
+  font-weight: 600;
+  padding: 12px;
+  box-shadow: 0 4px 10px rgba(25, 135, 84, 0.3);
+  transition: 0.3s;
+    color: #babdbf;
+}
+
+.btn-success:hover {
+  background-color: #157347;
+  box-shadow: 0 6px 14px rgba(25, 135, 84, 0.4);
+  transform: translateY(-2px);
+}
+.btn-outline-primary{
+  border-radius: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(25, 135, 84, 0.3);
+  transition: 0.3s;
+  background-color: #157347;
+  color: #babdbf;
+  border:#157347
+}
+.btn-outline-primary:hover {
+  background-color: #06351f;;
+  box-shadow: 0 6px 14px rgba(25, 135, 84, 0.4);
+  transform: translateY(-2px);
+}

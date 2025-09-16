@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MWF Stock Registration</title>
+  <link rel="stylesheet" href="/css/registerStock.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">MWF System</a>
+      <ul class="nav-links">
+        <li><a href="login.html">Login</a></li>
+        <li><a href="stockTable.html" class="active">View Stock</a></li>
+        <li><a href="sales.html">Sales</a></li>
+        <li><a href="managerReport.html">Reports</a></li>
+        <li><a href="managerDashboard.html">Dashboard</a></li>
+        <li><a href="settings.html">Settings</a></li>
+        <li><a href="salesTable.html"  class="active">View sales</a></li>
+        <li><a href="registeredUsers.html" class="active">View users</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="availableProducts.html"  class="active">Available products</a></li>
+          <li><button id="logoutBtn" class="logout-btn">Log Out</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Stock Registration Form -->
+  <div class="container">
+    <div class="form-card">
+      <h2>Register New Stock</h2>
+      <form action="/registerStock" method="post" id="stockForm">
+        <label>Product Name</label>
+        <input type="text" name="productName" id="productName" required>
+
+        <label>Product Type</label>
+        <select id="productType" name="productType" required>
+          <option value="">Select type</option>
+          <option  value="Wood">Wood</option>
+          <option  value="Furniture">Furniture</option>
+        </select>
+
+        <label>Supplier Name</label>
+        <input type="text" id="supplierName" name="supplierName">
+
+        <label>Date</label>
+        <input type="date" id="date" name="date" required>
+
+        <label>Quantity</label>
+        <input type="number" id="quantity" name="quantity" min="1" required>
+
+        <label>Cost Price</label>
+        <input type="number" id="costPrice" name="costPrice" step="0.01" required>
+
+        <label>Selling Price</label>
+        <input type="number" id="sellingPrice" name="sellingPrice" step="0.01" required>
+
+        <label>Quality</label>
+        <input type="text" id="quality" name="quality">
+
+        <label>Color (optional)</label>
+        <input type="text" id="color" name="color">
+
+        <label>Measurements (optional)</label>
+        <input type="text" id="measurements" name="measurements">
+
+        <button type="submit">Save Stock</button>
+      </form>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Script only for this page -->
+  <script src="/js/registerStock.js"></script>
+</body>
+</html>

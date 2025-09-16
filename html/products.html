@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Product</title>
+  <link rel="stylesheet" href="/css/products.css">
+</head>
+<body>
+      <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">MWF System</a>
+      <ul class="nav-links">
+        <li><a href="login.html">Login</a></li>
+        <li><a href="registerStock.html">Register Stock</a></li>
+        <li><a href="stockTable.html" class="active">View Stock</a></li>
+        <li><a href="sales.html">Sales</a></li>
+        <li><a href="managerReport.html">Reports</a></li>
+        <li><a href="managerDashboard.html">Dashboard</a></li>
+        <li><a href="settings.html">Settings</a></li>
+        <li><a href="salesTable.html"  class="active">View sales</a></li>
+        <li><a href="registeredUsers.html">View users</a></li>
+        <li><a href="availableProducts.html"  class="active">Available products</a></li>
+          <li><button id="logoutBtn" class="logout-btn">Log Out</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2>Register New Product</h2>
+    <form action="/products" method="post" id="productForm" class="form-card">
+      <label for="productName">Product Name</label>
+      <input type="text" id="productName" name="productName" placeholder="e.g. Sofa Set" required>
+
+      <label for="productCategory" >Category</label>
+      <select id="productCategory" name="category" required>
+        <option value="">-- Select --</option>
+        <option value="Wood">Wood</option>
+        <option value="Furniture">Furniture</option>
+      </select>
+
+      <label for="unitPrice">Unit Price (UGX)</label>
+      <input type="number" name="unitPrice" id="unitPrice" required>
+      <label for="quantity">Quantity</label>
+      <input type="number" name="quantity" id="quantity" required>
+
+      <button type="submit">Save Product</button>
+    </form>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/js/products.js"></script>
+</body>
+</html>

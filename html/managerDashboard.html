@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MWF Analytics Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="/css/managerDashboard.css">
+  </head>
+  <body>
+      <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">MWF System</a>
+      <ul class="nav-links">
+        <li><a href="login.html">Login</a></li>
+        <li><a href="registerStock.html">Register Stock</a></li>
+        <li><a href="stockTable.html" class="active">View Stock</a></li>
+        <li><a href="sales.html">Sales</a></li>
+        <li><a href="managerReport.html">Reports</a></li>
+        <li><a href="settings.html">Settings</a></li>
+        <li><a href="salesTable.html"  class="active">View sales</a></li>
+        <li><a href="registeredUsers.html" class="active">View users</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="availableProducts.html"  class="active">Available products</a></li>
+          <li><button id="logoutBtn" class="logout-btn">Log Out</button></li>
+      </ul>
+    </div>
+  </nav>
+    <header>
+      <h1>MWF Analytics Dashboard</h1>
+    </header>
+
+    <!-- Top KPI cards -->
+    <div class="top-kpis" id="topKPIs"></div>
+
+    <!-- Charts -->
+    <div class="charts">
+      <div class="chart-card">
+        <h2>Total Revenue Over Time</h2>
+        <canvas id="revenueChart" height="200"></canvas>
+      </div>
+      <div class="chart-card">
+        <h2>Most Sold Items</h2>
+        <canvas id="topItemsChart" height="200"></canvas>
+      </div>
+    </div>
+
+    <div class="charts">
+      <div class="chart-card">
+        <h2>Sales by Attendant</h2>
+        <canvas id="attendantChart" height="200"></canvas>
+      </div>
+      <div class="chart-card">
+        <h2>Payment Methods</h2>
+        <canvas id="paymentChart" height="200"></canvas>
+      </div>
+    </div>
+<!-- transport -->
+    <div class="charts">
+  <div class="chart-card full-width">
+    <h2>Transport Usage</h2>
+    <canvas id="transportChart" height="200"></canvas>
+  </div>
+</div>
+
+<!-- Available Products Table -->
+<div class="available-products">
+  <h2>Available Products</h2>
+  <table id="availableProducts">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Filled by JS -->
+    </tbody>
+  </table>
+</div>
+
+
+    <!-- Inventory Charts -->
+    <div class="charts">
+      <div class="chart-card">
+        <h2>Inventory Stock Levels</h2>
+        <canvas id="inventoryChart" height="200"></canvas>
+      </div>
+      <div class="chart-card">
+        <h2>Low Stock Items</h2>
+        <canvas id="lowStockChart" height="200"></canvas>
+      </div>
+    </div>
+
+    <!-- Latest Orders Table -->
+    <div class="latest-orders">
+      <h2>Latest Orders</h2>
+      <table id="latestOrders">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Date</th>
+            <th>Customer</th>
+            <th>Status</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/managerDashboard.js">
+     
+    </script>
+  </body>
+</html>

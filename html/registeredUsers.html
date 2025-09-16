@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Registered Users</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/registeredusers.css">
+</head>
+<body>
+      <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">MWF System</a>
+      <ul class="nav-links">
+        <li><a href="login.html">Login</a></li>
+        <li><a href="registerStock.html">Register Stock</a></li>
+        <li><a href="stockTable.html" class="active">View Stock</a></li>
+        <li><a href="sales.html">Sales</a></li>
+        <li><a href="managerReport.html">Reports</a></li>
+        <li><a href="managerDashboard.html">Dashboard</a></li>
+        <li><a href="settings.html">Settings</a></li>
+        <li><a href="salesTable.html"  class="active">View sales</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="availableProducts.html"  class="active">Available products</a></li>
+          <li><button id="logoutBtn" class="logout-btn">Log Out</button></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container mt-5">
+    <div class="card shadow-lg p-4">
+      <h2 class="text-center mb-4">Registered Users</h2>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody id="usersTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/js/registeredUsers.js"></script>
+</body>
+</html>

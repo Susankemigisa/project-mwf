@@ -1,0 +1,81 @@
+
+      .card {
+        background-color: #264653;
+        color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }/* Body background */
+body {
+  font-family: system-ui, sans-serif;
+  background: #5b3a29; /* warm brown tone */
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Card container */
+.card {
+  background-color: #264653; /* deep teal */
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  border: none;
+}
+
+/* Card Title */
+.card h2 {
+  color: #f4a261; /* warm orange accent */
+  font-weight: bold;
+}
+
+/* Labels */
+.form-label {
+  color: #e9c46a;
+  font-weight: 500;
+}
+
+/* Input fields */
+.form-control {
+  background: #355866;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+}
+.form-control:focus {
+  background: #406b7c;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(244, 162, 97, 0.5);
+}
+.form-control::placeholder {
+  color: #bbb;
+}
+
+/* Login Button */
+.btn-primary {
+  background: #e76f51;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.btn-primary:hover {
+  background: #d65a3a;
+}
+
+/* Error / success message */
+#message {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* Register link */
+.card a {
+  color: #f4a261;
+  text-decoration: none;
+}
+.card a:hover {
+  text-decoration: underline;
+}

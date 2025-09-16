@@ -1,0 +1,158 @@
+/* General body styling */
+body {
+  font-family: system-ui, sans-serif;
+  background: #5b3a29;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation */
+.navbar {
+  background: #264653;
+  padding: 12px 20px;
+}
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  color: #f4a261;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+.nav-links li a {
+  color: #ddd;
+  text-decoration: none;
+}
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: #fff;
+}
+
+/* Page container */
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+/* Headings */
+h2 {
+  color: #f4a261;
+  margin-bottom: 20px;
+}
+
+/* Product List Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #264653;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+th, td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid #444;
+}
+th {
+  color: #f4a261;
+  font-weight: 600;
+}
+tr:nth-child(even) {
+  background: #355866;
+}
+/* Change popup background and border radius */
+.swal2-popup {
+  border-radius: 16px !important;
+  background:#bbb!important;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* Title styling */
+.swal2-title {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  color:#355866 !important; /* match your MWF brown theme */
+}
+/* Make SweetAlert2 popup card smaller */
+.swal2-popup {
+  width: 350px !important;   /* default is ~500px */
+  padding: 1.2rem !important;
+  border-radius: 12px !important;
+  font-size: 0.95rem !important;
+}
+
+
+/* Text message */
+.swal2-html-container {
+  font-size: 1rem !important;
+  color:#dc3545 !important;
+}
+
+/* Confirm button */
+.swal2-confirm {
+  background-color:#264653 !important;
+  color:#bbb!important;
+  border-radius: 8px !important;
+  padding: 8px 18px !important;
+  font-size: 0.95rem !important;
+}
+
+/* Confirm button hover */
+.swal2-confirm:hover {
+  background-color:#333 !important;
+}
+
+/* Cancel button (if used) */
+.swal2-cancel {
+  background-color: #dc3545 !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  padding: 8px 18px !important;
+  font-size: 0.95rem !important;
+}
+
+/* Icon colors (success, error, warning, etc.) */
+.swal2-icon.swal2-error {
+  border-color: #dc3545 !important;
+  color: #dc3545 !important;
+}
+.swal2-icon.swal2-success {
+  border-color: #28a745 !important;
+  color: #28a745 !important;
+}
+.swal2-icon.swal2-warning {
+  border-color: #ffc107 !important;
+  color: #ffc107 !important;
+}
+.logout-btn {
+  padding: 0.6rem 1rem;   /* adjust width */
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 0.3rem;
+  border: none;
+  background:#37471c;
+  color:#cdd1d4;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-block;     /* keep inline with nav links */
+  line-height: 1;
+  white-space: nowrap;       /* prevent breaking into two lines */
+}
+
+.logout-btn:hover {
+  background:#556b2f;
+  transform: translateY(-1px);
+}

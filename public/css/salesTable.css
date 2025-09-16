@@ -1,0 +1,90 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #708090;
+  color: #333;
+}
+
+.navbar {
+  background: #1c1c1c;
+  padding: 12px 20px;
+}
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  color: #556b2f;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-links li a,.nav-links li a.active {
+  color: #708090;
+  text-decoration: none;
+  font-weight: 500;
+}
+.nav-links li a:hover
+ {
+  color: #556b2f;
+}
+
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.sales-list {
+  background:#013220;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+.sales-list h2 {
+  margin-bottom: 15px;
+  color:#708090;
+}
+.sales-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.sales-list th,
+.sales-list td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+.sales-list th {
+  background: #708090;
+  color: #013220;
+  font-weight: bold;
+}
+.sales-list tr {
+  color:  #708090;
+}
+.logout-btn {
+  padding: 0.6rem 1rem;   /* adjust width */
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 0.3rem;
+  border: none;
+  background:#37471c;
+  color:#cdd1d4;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-block;     /* keep inline with nav links */
+  line-height: 1;
+  white-space: nowrap;       /* prevent breaking into two lines */
+}
+
+.logout-btn:hover {
+  background:#556b2f;
+  transform: translateY(-1px);
+}

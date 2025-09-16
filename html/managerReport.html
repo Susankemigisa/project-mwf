@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MWF — High Level Report & Strategy</title>
+    <link rel="stylesheet" href="/css/managerReport.css" />
+  </head>
+  <body>
+    <header>
+      <!-- Navigation Bar -->
+      <nav class="navbar">
+        <div class="container">
+          <a href="#" class="logo">MWF System</a>
+          <ul class="nav-links">
+            <li><a href="login.html">Login</a></li>
+            <li><a href="registerStock.html">Register Stock</a></li>
+            <li><a href="stockTable.html">View Stock</a></li>
+            <li><a href="sales.html">Sales</a></li>
+            <li><a href="managerDashboard.html">Dashboard</a></li>
+            <li><a href="settings.html">Settings</a></li>
+            <li><a href="salesTable.html">View Sales</a></li>
+            <li><a href="registeredUsers.html">View Users</a></li>
+            <li><a href="products.html">Products</a></li>
+        <li><a href="availableProducts.html"  class="active">Available products</a></li>
+          <li><button id="logoutBtn" class="logout-btn">Log Out</button></li>
+          </ul>
+        </div>
+      </nav>
+      <h1>Mayondo Wood & Furniture Ltd</h1>
+      <p>High-Level Business Report & Strategic Recommendations</p>
+    </header>
+
+    <div class="report" id="reportContent">
+      <section>
+        <h2>Executive Summary</h2>
+        <p>
+          In <span id="reportMonth">—</span>, Mayondo Wood & Furniture (MWF)
+          recorded performance in both <strong>wood</strong> and
+          <strong>furniture</strong> categories. Sales agents contributed
+          significantly, with institutional clients leading. Transport services
+          (5% surcharge) were applied in
+          <span id="transportUsage">0%</span> of transactions, adding an extra
+          revenue stream.
+        </p>
+      </section>
+
+      <section>
+        <h2>Business Performance Report</h2>
+        <h3>Key KPIs</h3>
+        <ul>
+          <li><strong>Total Revenue:</strong> UGX <span id="totalRevenue">0</span></li>
+          <li><strong>Orders Processed:</strong> <span id="totalOrders">0</span></li>
+          <li><strong>Average Order Value (AOV):</strong> UGX <span id="aov">0</span></li>
+          <li><strong>Transport Usage:</strong> <span id="transportPercent">0%</span></li>
+        </ul>
+
+        <h3>Highlights</h3>
+        <ul>
+          <li>
+             <strong>Top Category:</strong>
+            <span id="topCategory">—</span>
+          </li>
+          <li>
+             <strong>Top Product:</strong>
+            <span id="topProduct">—</span>
+          </li>
+          <li>
+             <strong>Top Agent:</strong>
+            <span id="topAgent">—</span>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Challenges & Risks</h2>
+        <ul>
+          <li>
+             Stockouts observed for some products (<span id="stockouts">none</span>).
+          </li>
+          <li>
+             Over-reliance on large buyers may expose revenue.
+          </li>
+          <li>
+             Rising transport costs due to fuel prices.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Strategic Recommendations</h2>
+        <ul>
+          <li> Implement <strong>real-time stock alerts</strong>.</li>
+          <li> Diversify customers (target SMEs/retailers).</li>
+          <li> Encourage <strong>cash/cheque payments</strong>.</li>
+          <li> Acquire/lease vehicles to reduce transport costs.</li>
+          <li> Expand workshop capacity.</li>
+        </ul>
+      </section>
+
+      <div class="muted">
+        Prepared: <span id="reportDate">—</span> • Mayondo Wood & Furniture Ltd
+      </div>
+    </div>
+
+    <div style="text-align: center">
+      <button class="btn-export" onclick="window.print()">Export / Print Report</button>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/managerReport.js"></script>
+  </body>
+</html>

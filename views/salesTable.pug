@@ -1,0 +1,62 @@
+meta(charset="UTF-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+title MWF Sales List
+link(rel="stylesheet", href="/css/salesTable.css")
+//-  Navigation Bar 
+nav.navbar
+  .container
+    a.logo(href="#") MWF System
+    ul.nav-links
+      li
+        a(href="login.html") Login
+      li
+        a(href="registerStock.html") Register Stock
+      li
+        a(href="stockTable.html") View stock
+      li
+        a(href="sales.html") Sales
+      li
+        a(href="managerReport.html") Reports
+      li
+        a(href="managerDashboard.html") Dashboard
+      li
+        a(href="settings.html") Settings
+      li
+        a.active(href="registeredUsers.html") View users
+      li
+        a(href="products.html") Products
+      li
+        a.active(href="availableProducts.html") Available products
+      li
+        button#logoutBtn.logout-btn Log Out
+//-  Sales List 
+.container
+  .sales-list
+    h2 Registered Sales
+    table#salesTable
+      thead
+        tr
+          th Customer Name
+          th Product Name
+          th Quantity
+          th Unit Price
+          th Total
+          th Date
+          th Payment Type
+          th Sales Agent
+          th Transport Included
+      tbody
+        if sales.length
+          each sale in sales
+            tr
+              td #{sale.customerName}
+              td #{sale.productName}
+              td #{sale.quantity}
+              td #{sale.unitPrice}
+              td #{sale.total}
+              td #{moment(sale.Date).format("DD-MM-YYYY")}
+              td #{sale.paymentType}
+              td #{sale.salesAgent}
+              td #{sale.transportIncluded}
+        //-  Filled by JavaScript 
+script(src="/js/salesTables.js")

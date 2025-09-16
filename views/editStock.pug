@@ -1,0 +1,67 @@
+meta(charset="UTF-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+title MWF Edit Stock Form
+link(rel="stylesheet", href="/css/registerStock.css")
+//-  Navigation Bar 
+nav.navbar
+  .container
+    a.logo(href="#") MWF System
+    ul.nav-links
+      li
+        a(href="login.html") Login
+      li
+        a.active(href="stockTable.html") View Stock
+      li
+        a(href="sales.html") Sales
+      li
+        a(href="managerReport.html") Reports
+      li
+        a(href="managerDashboard.html") Dashboard
+      li
+        a(href="settings.html") Settings
+      li
+        a.active(href="salesTable.html") View sales
+      li
+        a.active(href="registeredUsers.html") View users
+      li
+        a(href="products.html") Products
+      li
+        a.active(href="availableProducts.html") Available products
+      li
+        button#logoutBtn.logout-btn Log Out
+//-  Stock Registration Form 
+.container
+  .form-card
+    h2 Edit Stock Form
+    form#stockForm(action="/editstock/${item._id}", method="post")
+      label Product Name
+      input#productName(type="text", name="productName", value=`${item.productName}`, required)
+      label Product Type
+      select#productType(name="productType", required)
+        option(value=`${item.productType}` selected) #{item.quality}
+        option(value="Wood") Wood
+        option(value="Furniture") Furniture
+      label Supplier Name
+      input#supplierName(type="text", name="supplierName" value=`${item.supplierName}`)
+      label Date
+      input#date(type="date", name="date", value=`${item.date}`, required)
+      label Quantity
+      input#quantity(type="number", name="quantity", min="1", value=`${item.quantity}`, required)
+      label Cost Price
+      input#costPrice(type="number", name="costPrice", step="0.01", value=`${item.costPrice}`, required)
+      label Selling Price
+      input#sellingPrice(type="number", name="sellingPrice", step="0.01", value=`${item.sellingPrice}`, required)
+      label Quality
+      select#quality(type="text", name="quality")
+        option(value=`${item.quality}` selected) #{item.quality}
+        option(value="High") High
+        option(value="Medium") Medium
+        option(value="Low") Low
+      label Color (optional)
+      input#color(type="text", name="color" value=`${item.color}`)
+      label Measurements (optional)
+      input#measurements(type="text", name="measurements" value=`${item.measurements}`)
+      button(type="submit") Update Stock
+script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
+//-  Script only for this page 
+script(src="/js/registerStock.js")

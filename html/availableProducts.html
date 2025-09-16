@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products List</title>
+  <link rel="stylesheet" href="/css/availableProducts.css">
+</head>
+<body>
+      <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">MWF System</a>
+      <ul class="nav-links">
+        <li><a href="login.html">Login</a></li>
+        <li><a href="registerStock.html">Register Stock</a></li>
+        <li><a href="stockTable.html" class="active">View Stock</a></li>
+        <li><a href="sales.html">Sales</a></li>
+        <li><a href="managerReport.html">Reports</a></li>
+        <li><a href="managerDashboard.html">Dashboard</a></li>
+        <li><a href="settings.html">Settings</a></li>
+        <li><a href="salesTable.html"  class="active">View sales</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="registeredUsers.html"  class="active">View users</a></li>
+          <li><button id="logoutBtn" class="logout-btn">Log Out</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2>Registered Products</h2>
+    <table id="productTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Filled by JS -->
+      </tbody>
+    </table>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/js/availabeProducts.js"></script>
+</body>
+</html>
