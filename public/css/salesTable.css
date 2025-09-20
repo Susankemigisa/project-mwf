@@ -5,34 +5,8 @@ body {
   color: #333;
 }
 
-.navbar {
-  background: #1c1c1c;
-  padding: 12px 20px;
-}
-.navbar .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.logo {
-  color: #556b2f;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-decoration: none;
-}
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-.nav-links li a,.nav-links li a.active {
-  color: #708090;
-  text-decoration: none;
-  font-weight: 500;
-}
-.nav-links li a:hover
- {
-  color: #556b2f;
+.sale{
+  color: #333;
 }
 
 .container {
@@ -68,6 +42,16 @@ body {
 }
 .sales-list tr {
   color:  #708090;
+}
+.btn-warning{
+  color: #d8a3a3;
+  text-decoration: none;
+  font-weight: bolder;
+  
+}
+.btn-dark{
+ text-decoration: none;
+  color: #708090;
 }
 .logout-btn {
   padding: 0.6rem 1rem;   /* adjust width */

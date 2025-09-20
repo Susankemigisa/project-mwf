@@ -51,6 +51,7 @@ app.use(express.urlencoded({extended:true}))// helps to pass data from forms
 //image uploads
 app.use('/public/uploads', express.static(__dirname+ '/public/uploads'))
 //express session configs
+
 app.use(expressSession({
   secret: process.env.SESSION_SECRET,
    resave: false,
@@ -78,6 +79,7 @@ app.use("/",managerDashboardRoutes);
 app.use("/",managerReportRoutes)
 app.use("/",productsRoutes);
 app.use("/",settingsRoutes);
+
 // non existent route handler
 app.use((req, res) =>{
   res.status(404).send("Oops! Route not found.");

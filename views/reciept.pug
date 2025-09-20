@@ -1,0 +1,43 @@
+extends layout
+
+block styles
+  link(rel="stylesheet", href="/css/salesTable.css")
+//-   link(rel='stylesheet' href='https')
+
+block content
+  .container
+    .receipt-page
+      h2.text-center MAYONDO WOOD AND FURNITURE LIMITED
+      p.text.center A B2B Wood and Furniture Limited
+      hr
+
+      h3.text-center Receipt
+      p Date: #{moment(sale.date).format("DD-MM-YYYY")}
+      p Customer: #{sale.customerName}
+      p Sales agent: ##{sale.salesAgent ? sale.salesAgent.fullName : "N/A"}
+
+      table.table
+        thead
+            tr
+                th Product Name
+                th Product Type
+                th Quantity
+                th Unit Price
+                th Total Price
+                th Transport Included
+            tbody
+                tr
+                    td #{sale.productName}
+                    td #{sale.productType}
+                    td #{sale.quantity}
+                    td #{sale.unitPrice}
+                    td #{sale.totalPrice}
+                    td #{sale.transportIncluded ? "Yes" : "No"}
+
+    p Payment Type: #{sale.paymentType}             
+    h
+    h4.text-center Thank you for you business, come again
+
+    button(onclick="window.print()" class="btn btn-primary") Print Receipt
+block scripts
+  //- script(src="/js/salesTables.js")

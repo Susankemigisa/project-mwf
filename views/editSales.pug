@@ -1,0 +1,84 @@
+extends layout
+
+block styles
+  link(rel="stylesheet", href="/css/sales.css")
+
+block content
+  .container
+    .form-card
+      if sale
+        h2 Edit Sale
+        form#salesForm(action=`/editsale/${sale._id}?_method=PUT`, method="post")
+      else
+        h2 Register New Sale
+        form#salesForm(action="/addsale", method="post")
+
+        //- Customer Name
+        .mb-3
+          label(for="customerName") Customer Name
+          input#customerName.form-control(type="text", name="customerName", value=sale ? sale.customerName : "", required)
+
+        //- Product Name
+        .mb-3
+          label(for="productName") Product Name
+          select#productName.form-select(name="productName", required)
+            if sale
+              option(value=sale.productName selected) #{sale.productName}
+            option(value="Timber") Timber
+            option(value="Hardwood") Hardwood
+            option(value="Softwood") Softwood
+            option(value="Poles") Poles
+            option(value="Chairs") Chairs
+            option(value="Tables") Tables
+
+        //- Product Type
+        .mb-3
+          label(for="productType") Product Type
+          select#productType.form-select(name="productType", required)
+            if sale
+              option(value=sale.productType selected) #{sale.productType}
+            option(value="Wood") Wood
+            option(value="Furniture") Furniture
+
+        //- Quantity
+        .mb-3
+          label(for="quantity") Quantity
+          input#quantity.form-control(type="number", name="quantity", min="1", value=sale ? sale.quantity : "", required)
+
+        //- Price
+        .mb-3
+          label(for="price") Price (per unit)
+          input#price.form-control(type="number", name="unitPrice", step="0.01", value=sale ? sale.unitPrice : "", required)
+
+        //- Date
+        .mb-3
+          label(for="date") Date
+          input#date.form-control(type="date", name="date", value=sale ? sale.date : "", required)
+
+        //- Payment Type
+        .mb-3
+          label(for="paymentType") Payment Type
+          select#paymentType.form-select(name="paymentType", required)
+            if sale
+              option(value=sale.paymentType selected) #{sale.paymentType}
+            option(value="Cash") Cash
+            option(value="Cheque") Cheque
+            option(value="Bank Transfer") Bank Transfer
+
+        //- Sales Agent
+        .mb-3
+          label(for="salesAgent") Sales Agent
+          input#salesAgent.form-control(type="text", name="salesAgent", value=sale ? sale.salesAgent : "", required)
+
+        //- Transport
+        .form-check.mb-3
+          input#transport.form-check-input(type="checkbox", name="transportIncluded", checked=sale && sale.transportIncluded)
+          label.form-check-label(for="transport") Include Transport (5%)
+
+        //- Submit
+        .d-grid
+          button.btn.btn-primary(type="submit") Update Sale
+
+block scripts
+  script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
+  //- script(src="/js/sales.js")

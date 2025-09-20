@@ -1,61 +1,54 @@
-meta(charset="UTF-8")
-meta(name="viewport", content="width=device-width,initial-scale=1")
-title MWF Sales Registration
-link(rel="stylesheet", href="/css/sales.css")
-script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
-//-  Navigation Bar 
-nav.navbar
-  .container
-    a.logo(href="#") MWF System
-    ul.nav-links
-      li
-        a(href="login.html") Login
-      li
-        a(href="registerStock.html") Register Stock
-      li
-        a.active(href="stockTable.html") View Stock
-      li
-        a(href="managerReport.html") Reports
-      li
-        a(href="managerDashboard.html") Dashboard
-      li
-        a(href="settings.html") Settings
-      li
-        a.active(href="salesTable.html") View sales
-      li
-        a.active(href="registeredUsers.html") View users
-      li
-        a(href="products.html") Products
-      li
-        a.active(href="availableProducts.html") Available products
-      li
-        button#logoutBtn.logout-btn Log Out
-//-  Sales Registration Form 
-.container
-  .form-card
-    h2 Register New Sale
-    form#salesForm(action="/recordSale", method="post")
-      label Customer Name
-      input#customerName(type="text", name="customerName", required)
-      label Product Name
-      input#productName(type="text", name="productName", required)
-      label Quantity
-      input#quantity(type="number", name="quantity", min="1", required)
-      label Price (per unit)
-      input#price(type="number", name="unitPrice", step="0.01", required)
-      label Date
-      input#date(type="date", name="date", required)
-      label Payment Type
-      select#paymentType(name="paymentType", required)
-        option(value) Select payment type
-        option(value="Cash") Cash
-        option(value="Cheque") Cheque
-        option(value="Bank transfer") Bank Transfer
-      label Sales Agent
-      input#salesAgent(type="text", name="salesAgent", required)
-      label
-        input#transport(type="checkbox", name="transportIncluded")
-        |  Include Transport (5%)
+extends layout
 
-      button(type="submit") Save Sale
-script(src="/js/sales.js")
+block styles
+  link(rel="stylesheet", href="/css/sales.css")
+
+block content
+  .container
+    .form-card
+      h2 Register New Sale
+      form#salesForm(action="/recordSale", method="post")
+        label(for="customerName") Customer Name
+        input#customerName(type="text", name="customerName", required)
+
+        label(for="productName") Product Name
+        select#productName(name="productName", required)
+          if stocks.length
+            each stock in stocks
+              option(value=stock.productName)= stock.productName
+
+
+        label(for="productType") Product Type
+        select#productType(name="productType", required)
+          option(value="") -- Select type --
+          option(value="Wood") Wood
+          option(value="Furniture") Furniture
+
+        label(for="quantity") Quantity
+        input#quantity(type="number", name="quantity", min="1", required)
+
+        label(for="unitPrice") Price (per unit)
+        input#unitPrice(type="number", name="unitPrice", step="0.01", required)
+
+        label(for="totalPrice") totalPrice
+        input#totalPrice(type="number", name="totalPrice", step="0.01", required)
+         //- Optional Transport Checkbox
+        label(for="TransportIncluded") Transport
+          input#transport(type="checkbox", name="transportIncluded")
+          |  Included Transport (5%)
+
+        label(for="date") Date
+        input#date(type="date", name="date", required)
+
+        label(for="paymentType") Payment Type
+        select#paymentType(name="paymentType", required)
+          option(value="") -- Select payment type --
+          option(value="Cash") Cash
+          option(value="Cheque") Cheque
+          option(value="Bank transfer") Bank Transfer
+
+        button(type="submit") Save Sale
+
+block scripts
+  script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
+  script(src="/js/calculateTotal.js")

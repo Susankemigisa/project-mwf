@@ -1,51 +1,29 @@
-meta(charset="UTF-8")
-meta(name="viewport", content="width=device-width,initial-scale=1")
-title Products List
-link(rel="stylesheet", href="/css/availableProducts.css")
-//-  Navigation Bar 
-nav.navbar
+extends layout
+
+block styles
+  link(rel="stylesheet", href="/css/availableProducts.css")
+
+block content
   .container
-    a.logo(href="#") MWF System
-    ul.nav-links
-      li
-        a(href="login.html") Login
-      li
-        a(href="registerStock.html") Register Stock
-      li
-        a.active(href="stockTable.html") View Stock
-      li
-        a(href="sales.html") Sales
-      li
-        a(href="managerReport.html") Reports
-      li
-        a(href="managerDashboard.html") Dashboard
-      li
-        a(href="settings.html") Settings
-      li
-        a.active(href="salesTable.html") View sales
-      li
-        a(href="products.html") Products
-      li
-        a.active(href="registeredUsers.html") View users
-      li
-        button#logoutBtn.logout-btn Log Out
-.container
-  h2 Registered Products
-  table#productTable
-    thead
-      tr
-        th Product Name
-        th Category
-        th Unit Price
-        th Quantity
-    tbody
-      if products.length
-        each product in products
+    h2 Registered Products
+    table#productTable
+      thead
+        tr
+          th Product Name
+          th Category
+          th Unit Price
+          th Quantity
+      tbody
+        if products.length
+          each product in products
+            tr
+              td #{product.productName}
+              td #{product.category}
+              td #{product.unitPrice}
+              td #{product.quantity}
+        else
           tr
-            td #{product.productName}
-            td #{product.category}
-            td #{product.unitPrice}
-            td #{product.quality}
-      //-  Filled by JS 
-script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
-script(src="/js/availabeProducts.js")
+            td(colspan="4") No products available.
+
+block scripts
+  script(src="/js/availableProducts.js")

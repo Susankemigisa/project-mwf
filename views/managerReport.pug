@@ -1,124 +1,95 @@
-meta(charset="UTF-8")
-meta(name="viewport", content="width=device-width,initial-scale=1")
-title MWF — High Level Report & Strategy
-link(rel="stylesheet", href="/css/managerReport.css")
+extends layout
 
-header
-  //- Navigation Bar
-  nav.navbar
-    .container
-      a.logo(href="#") MWF System
-      ul.nav-links
-        li
-          a(href="login.html") Login
-        li
-          a(href="registerStock.html") Register Stock
-        li
-          a(href="stockTable.html") View Stock
-        li
-          a(href="sales.html") Sales
-        li
-          a(href="managerDashboard.html") Dashboard
-        li
-          a(href="settings.html") Settings
-        li
-          a(href="salesTable.html") View Sales
-        li
-          a(href="registeredUsers.html") View Users
-        li
-          a(href="products.html") Products
-        li
-          a.active(href="availableProducts.html") Available products
-        li
-          button#logoutBtn.logout-btn Log Out
-  h1 Mayondo Wood & Furniture Ltd
-  p High-Level Business Report & Strategic Recommendations
+block styles
+  link(rel="stylesheet", href="/css/managerReport.css")
 
-.report#reportContent
-  section
-    h2 Executive Summary
-    p
-      | In 
-      span#reportMonth —
-      | , Mayondo Wood & Furniture (MWF) recorded performance in both 
-      strong wood
-      |  and 
-      strong furniture
-      |  categories. Sales agents contributed significantly, with institutional clients leading. Transport services (5% surcharge) were applied in 
-      span#transportUsage 0%
-      |  of transactions, adding an extra revenue stream.
+block content
+  header.page-header
+    h1 Mayondo Wood & Furniture Ltd
+    p High-Level Business Report & Strategic Recommendations
 
-  section
-    h2 Business Performance Report
-    h3 Key KPIs
-    ul
-      li
-        strong Total Revenue:
-        |  UGX 
-        span#totalRevenue 0
-      li
-        strong Orders Processed:
-        |  
-        span#totalOrders 0
-      li
-        strong Average Order Value (AOV):
-        |  UGX 
-        span#aov 0
-      li
-        strong Transport Usage:
-        |  
-        span#transportPercent 0%
-    h3 Highlights
-    ul
-      li
-        strong Top Category:
-        | 
-        span#topCategory —
-      li
-        strong Top Product:
-        | 
-        span#topProduct —
-      li
-        strong Top Agent:
-        | 
-        span#topAgent —
+  .report#reportContent
+    section
+      h2 Executive Summary
+      p
+        | In 
+        span#reportMonth —
+        | , Mayondo Wood & Furniture (MWF) recorded performance in both 
+        strong wood
+        |  and 
+        strong furniture
+        |  categories. Sales agents contributed significantly, with institutional clients leading. Transport services (5% surcharge) were applied in 
+        span#transportUsage 0%
+        |  of transactions, adding an extra revenue stream.
 
-  section
-    h2 Challenges & Risks
-    ul
-      li
-        | Stockouts observed for some products (
-        span#stockouts none
-        | ).
-      li
-        | Over-reliance on large buyers may expose revenue.
-      li
-        | Rising transport costs due to fuel prices.
+    section
+      h2 Business Performance Report
+      h3 Key KPIs
+      ul
+        li
+          strong Total Revenue:
+          |  UGX 
+          span#totalRevenue 0
+        li
+          strong Orders Processed:
+          |  
+          span#totalOrders 0
+        li
+          strong Average Order Value (AOV):
+          |  UGX 
+          span#aov 0
+        li
+          strong Transport Usage:
+          |  
+          span#transportPercent 0%
+      h3 Highlights
+      ul
+        li
+          strong Top Category:
+          | 
+          span#topCategory —
+        li
+          strong Top Product:
+          | 
+          span#topProduct —
+        li
+          strong Top Agent:
+          | 
+          span#topAgent —
 
-  section
-    h2 Strategic Recommendations
-    ul
-      li
-        | Implement 
-        strong real-time stock alerts
-        | .
-      li
-        | Diversify customers (target SMEs/retailers).
-      li
-        | Encourage 
-        strong cash/cheque payments
-        | .
-      li
-        | Acquire/lease vehicles to reduce transport costs.
-      li
-        | Expand workshop capacity.
-  .muted
-    | Prepared: 
-    span#reportDate —
-    |  • Mayondo Wood & Furniture Ltd
+    section
+      h2 Challenges & Risks
+      ul
+        li
+          | Stockouts observed for some products (
+          span#stockouts none
+          | ).
+        li Over-reliance on large buyers may expose revenue.
+        li Rising transport costs due to fuel prices.
 
-div(style="text-align: center")
-  button.btn-export(onclick="window.print()") Export / Print Report
+    section
+      h2 Strategic Recommendations
+      ul
+        li
+          | Implement 
+          strong real-time stock alerts
+          | .
+        li Diversify customers (target SMEs/retailers).
+        li
+          | Encourage 
+          strong cash/cheque payments
+          | .
+        li Acquire/lease vehicles to reduce transport costs.
+        li Expand workshop capacity.
 
-script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
-script(src="/js/managerReport.js")
+    .muted
+      | Prepared: 
+      span#reportDate —
+      |  • Mayondo Wood & Furniture Ltd
+
+  div.text-center
+    button.btn-export(onclick="window.print()") Export / Print Report
+
+block scripts
+  script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
+  //- script(src="/js/managerReport.js")

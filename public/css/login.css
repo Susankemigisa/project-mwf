@@ -12,6 +12,11 @@ body {
   margin: 0;
   padding: 0;
 }
+.logo-oval{
+  
+  object-fit:cover;
+  border-radius: 50%;
+}
 
 /* Card container */
 .card {

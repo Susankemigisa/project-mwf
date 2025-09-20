@@ -1,48 +1,33 @@
-meta(charset="UTF-8")
-meta(name="viewport", content="width=device-width,initial-scale=1")
-title Register Product
-link(rel="stylesheet", href="/css/products.css")
-//-  Navigation Bar 
-nav.navbar
+extends layout
+
+block styles
+  link(rel="stylesheet", href="/css/products.css")
+
+block content
   .container
-    a.logo(href="#") MWF System
-    ul.nav-links
-      li
-        a(href="login.html") Login
-      li
-        a(href="registerStock.html") Register Stock
-      li
-        a.active(href="stockTable.html") View Stock
-      li
-        a(href="sales.html") Sales
-      li
-        a(href="managerReport.html") Reports
-      li
-        a(href="managerDashboard.html") Dashboard
-      li
-        a(href="settings.html") Settings
-      li
-        a.active(href="salesTable.html") View sales
-      li
-        a(href="registeredUsers.html") View users
-      li
-        a.active(href="availableProducts.html") Available products
-      li
-        button#logoutBtn.logout-btn Log Out
-.container
-  h2 Register New Product
-  form#productForm.form-card(action="/addProduct", method="post")
-    label(for="productName") Product Name
-    input#productName(type="text", name="productName", placeholder="e.g. Sofa Set", required)
-    label(for="productCategory") Category
-    select#productCategory(name="category", required)
-      option(value) -- Select --
-      option(value="Wood") Wood
-      option(value="Furniture") Furniture
-    label(for="unitPrice") Unit Price (UGX)
-    input#unitPrice(type="number", name="unitPrice", required)
-    label(for="quantity") Quantity
-    input#quantity(type="number", name="quantity", required)
-    button(type="submit") Save Product
-script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
-script(src="/js/products.js")
+    h2 Register New Product
+    form#productForm.form-card(action="/addProduct", method="post")
+      .form-group
+        label(for="productName") Product Name
+        input#productName(type="text", name="productName", placeholder="e.g. Sofa Set", required)
+
+      .form-group
+        label(for="productCategory") Category
+        select#productCategory(name="category", required)
+          option(value) -- Select --
+          option(value="Wood") Wood
+          option(value="Furniture") Furniture
+
+      .form-group
+        label(for="unitPrice") Unit Price (UGX)
+        input#unitPrice(type="number", name="unitPrice", required)
+
+      .form-group
+        label(for="quantity") Quantity
+        input#quantity(type="number", name="quantity", required)
+
+      button.btn-primary(type="submit") Save Product
+
+block scripts
+  script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
+  //- script(src="/js/products.js")

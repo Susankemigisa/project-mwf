@@ -1,101 +1,111 @@
-meta(charset="UTF-8")
-meta(name="viewport", content="width=device-width,initial-scale=1")
-title MWF Analytics Dashboard
-script(src="https://cdn.jsdelivr.net/npm/chart.js")
-link(rel="stylesheet", href="/css/managerDashboard.css")
-//-  Navigation Bar 
-nav.navbar
-  .container
-    a.logo(href="#") MWF System
-    ul.nav-links
-      li
-        a(href="login.html") Login
-      li
-        a(href="registerStock.html") Register Stock
-      li
-        a.active(href="stockTable.html") View Stock
-      li
-        a(href="sales.html") Sales
-      li
-        a(href="managerReport.html") Reports
-      li
-        a(href="settings.html") Settings
-      li
-        a.active(href="salesTable.html") View sales
-      li
-        a.active(href="registeredUsers.html") View users
-      li
-        a(href="products.html") Products
-      li
-        a.active(href="availableProducts.html") Available products
-      li
-        button#logoutBtn.logout-btn Log Out
-header
-  h1 MWF Analytics Dashboard
-//-  Top KPI cards 
-.top-kpis#topKPIs
-h2 Purchase Costs
-  p#purchasecost for Timber:#{new Intl.NumberFormat().format(totalExpenseTimber.totalCost)} Shs
-  p#purchasecost for Hardwood:#{new Intl.NumberFormat().format(totalExpenseHardwood.totalCost)} Shs
-  p#purchasecost for Softwood:#{new Intl.NumberFormat().format(totalExpenseSoftwood.totalCost)} Shs
-  p#purchasecost for Poles:#{new Intl.NumberFormat().format(totalExpensePoles.totalCost)} Shs
-  p#purchasecost for Chairs:#{new Intl.NumberFormat().format(totalExpenseChairs.totalCost)} Shs
-  p#purchasecost for Tables:#{new Intl.NumberFormat().format(totalExpenseTables.totalCost)} Shs
-  h5#purchasecost Total Expense:#{new Intl.NumberFormat().format((totalExpenseTimber.totalCost)+ (totalExpenseHardwood.totalCost)+ (totalExpenseSoftwood.totalCost)+ (totalExpensePoles.totalCost)+ totalExpenseChairs.totalCost)+ (totalExpenseTables.totalCost)} Shs
-//-  Charts 
-.charts
-  .chart-card
-    h2 Total Revenue Over Time
-    canvas#revenueChart(height="200")
-  .chart-card
-    h2 Total Revenue Over Time
-    canvas#purchasecost for Timber:#{new Intl.NumberFormat().format(totalExpenseTimber.totalCost)} Shs(height="200")
-  .chart-card
-    h2 Most Sold Items
-    canvas#topItemsChart(height="200")
-.charts
-  .chart-card
-    h2 Sales by Attendant
-    canvas#attendantChart(height="200")
-  .chart-card
-    h2 Payment Methods
-    canvas#paymentChart(height="200")
-//-  transport 
-.charts
-  .chart-card.full-width
-    h2 Transport Usage
-    canvas#transportChart(height="200")
-//-  Available Products Table 
-.available-products
-  h2 Available Products
-  table#availableProducts
-    thead
-      tr
-        th Product
-        th Quantity
-    tbody
-      //-  Filled by JS 
-//-  Inventory Charts 
-.charts
-  .chart-card
-    h2 Inventory Stock Levels
-    canvas#inventoryChart(height="200")
-  .chart-card
-    h2 Low Stock Items
-    canvas#lowStockChart(height="200")
-//-  Latest Orders Table 
-.latest-orders
-  h2 Latest Orders
-  table#latestOrders
-    thead
-      tr
-        th Product
-        th Date
-        th Customer
-        th Status
-        th Amount
-    tbody
-script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
-script(src="/js/managerDashboard.js").
-  
-  
+extends layout
+
+block styles
+  link(rel="stylesheet", href="/css/managerDashboard.css")
+
+block content
+  //- KPI cards
+  .topKPIs.kpi-container
+    .kpi-card
+      span 💰 Revenue:
+      strong UGX #{totalRevenue.toLocaleString()}
+    .kpi-card
+      span 📦 Orders:
+      strong #{totalOrders}
+    .kpi-card
+      span 📊 AOV:
+      strong UGX #{avgOrder}
+    .kpi-card
+      span 🏷️ Stock Items:
+      strong #{totalStockItems}
+    .kpi-card
+      span 🛒 Products:
+      strong #{totalProducts}
+
+  //- Expenses
+  .top-kpis
+    .kpi-card.total
+      h3 Purchase Costs
+        ul
+          li Timber: #{new Intl.NumberFormat().format(totalExpenseTimber.totalCost)} Shs
+          li Hardwood: #{new Intl.NumberFormat().format(totalExpenseHardwood.totalCost)} Shs
+          li Softwood: #{new Intl.NumberFormat().format(totalExpenseSoftwood.totalCost)} Shs
+          li Poles: #{new Intl.NumberFormat().format(totalExpensePoles.totalCost)} Shs
+          li Chairs: #{new Intl.NumberFormat().format(totalExpenseChairs.totalCost)} Shs
+          li Tables: #{new Intl.NumberFormat().format(totalExpenseTables.totalCost)} Shs
+      h2 Total Expense
+        #{new Intl.NumberFormat().format((totalExpenseTimber.totalCost)+(totalExpenseHardwood.totalCost)+(totalExpenseSoftwood.totalCost)+(totalExpensePoles.totalCost)+totalExpenseChairs.totalCost+totalExpenseTables.totalCost)} Shs
+
+  //- Sales
+  .top-kpis
+    .kpi-card.total
+      h3 Total Sales
+        ul
+          li Timber: #{new Intl.NumberFormat().format(totalRevenueTimber.totalCost)} Shs
+
+  //- Charts
+  .charts
+    .chart-card
+      h2 Total Revenue Over Time
+      canvas#revenueChart(height="200")
+    .chart-card
+      h2 Most Sold Items
+      canvas#topItemsChart(height="200")
+
+  .charts
+    .chart-card
+      h2 Sales by Attendant
+      canvas#attendantChart(height="200")
+    .chart-card
+      h2 Payment Methods
+      canvas#paymentChart(height="200")
+
+  .charts
+    .chart-card.full-width
+      h2 Transport Usage
+      canvas#transportChart(height="200")
+
+  //- Available Products Table
+  .available-products
+    h2 Available Products
+    table#availableProducts
+      thead
+        tr
+          th Product
+          th Quantity
+      tbody
+
+  //- Inventory Charts
+  .charts
+    .chart-card
+      h2 Inventory Stock Levels
+      canvas#inventoryChart(height="200")
+    .chart-card
+      h2 Low Stock Items
+      canvas#lowStockChart(height="200")
+
+  //- Latest Orders
+  .latest-orders
+    h2 Latest Orders
+    table#latestOrders
+      thead
+        tr
+          th Product
+          th Date
+          th Customer
+          th Status
+          th Amount
+      tbody
+
+block scripts
+  script.
+    window.revenueByDate = !{JSON.stringify(revenueByDate)};
+    window.itemsMap = !{JSON.stringify(itemsMap)};
+    window.agentMap = !{JSON.stringify(agentMap)};
+    window.paymentMap = !{JSON.stringify(paymentMap)};
+    window.transportStats = !{JSON.stringify(transportStats)};
+    window.stockLevels = !{JSON.stringify(stockLevels)};
+    window.lowStock = !{JSON.stringify(lowStock)};
+    window.latestOrders = !{JSON.stringify(latestOrders)};
+    window.salesData = !{JSON.stringify(salesData)};
+  script(src="/js/dashboard.js")

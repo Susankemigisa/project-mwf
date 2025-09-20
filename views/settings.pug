@@ -1,93 +1,67 @@
-meta(charset="UTF-8")
-meta(name="viewport", content="width=device-width,initial-scale=1")
-title MWF — System Settings
-link(rel="stylesheet", href="/css/settings.css")
-//-  Navigation Bar 
-nav.navbar
+extends layout
+
+block styles
+  link(rel="stylesheet", href="/css/settings.css")
+
+block content
   .container
-    a.logo(href="#") MWF System
-    ul.nav-links
-      li
-        a(href="login.html") Login
-      li
-        a(href="registerStock.html") Register Stock
-      li
-        a.active(href="stockTable.html") View Stock
-      li
-        a(href="sales.html") Sales
-      li
-        a(href="managerReport.html") Reports
-      li
-        a(href="managerDashboard.html") Dashboard
-      li
-        a.active(href="salesTable.html") View sales
-      li
-        a.active(href="registeredUsers.html") View users
-      li
-        a(href="products.html") Products
-      li
-        a.active(href="availableProducts.html") Available products
-      li
-        button#logoutBtn.logout-btn Log Out
-header
-  h1 System Settings
-  p Configure application preferences and data
-.container
-  //-  General Settings 
-  section
-    h2 General Settings
-    label Company Name
-    input#companyName(name="name", type="text", value="Mayondo Wood & Furniture Ltd")
-    label Default Currency
-    select#currency
-      option(value="UGX", selected) UGX (Uganda Shillings)
-      option(value="USD") USD (US Dollar)
-      option(value="KES") KES (Kenya Shillings)
-    label Reporting Frequency
-    select#reportFreq
-      option(value="daily") Daily
-      option(value="weekly", selected) Weekly
-      option(value="monthly") Monthly
-  //-  Sales Settings 
-  section
-    h2 Sales Settings
-    label Default Transport Fee (%)
-    input#transportFee(type="number", name="sales", value="5", min="0", step="0.1")
-    label Allowed Payment Methods
-    select#paymentMethods(multiple, size="3")
-      option(value="cash", selected) Cash
-      option(value="cheque", selected) Cheque
-      option(value="overdraft", selected) Bank Overdraft
-    .muted.
-      
-      
-  //-  Stock Settings 
-  section
-    h2 Stock Settings
-    label Default Quality Levels
-    input#qualityLevels(type="text", name="stock", value="High, Medium, Low")
-    label Enable Optional Fields
-    select#optionalFields(multiple, size="2")
-      option(value="color", selected) Color
-      option(value="measurements", selected) Measurements
-    .muted.
-      
-      Select which stock attributes should be required
-      
-  //-  User & Role Settings 
-  section
-    h2 User & Role Settings
-    #roles.roles
-    button.add(onclick="addUser()") + Add User
-  //-  Data Management 
-  section
-    h2 Data Management
-    button(onclick="exportData()") Export Settings
-    input#importFile(type="file", name="data", accept=".json")
-    button.danger(onclick="resetSettings()").
-      
-      Reset to Defaults
-      
-  button.save(onclick="saveSettings()") Save Settings
-script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
-script(src="settings.js")
+    h1 System Settings
+    p Configure application preferences and data
+
+    //- General Settings
+    section
+      h2 General Settings
+      label Company Name
+      input#companyName(name="name", type="text", value="Mayondo Wood & Furniture Ltd")
+      label Default Currency
+      select#currency
+        option(value="UGX", selected) UGX (Uganda Shillings)
+        option(value="USD") USD (US Dollar)
+        option(value="KES") KES (Kenya Shillings)
+      label Reporting Frequency
+      select#reportFreq
+        option(value="daily") Daily
+        option(value="weekly", selected) Weekly
+        option(value="monthly") Monthly
+
+    //- Sales Settings
+    section
+      h2 Sales Settings
+      label Default Transport Fee (%)
+      input#transportFee(type="number", name="sales", value="5", min="0", step="0.1")
+      label Allowed Payment Methods
+      select#paymentMethods(multiple, size="3")
+        option(value="cash", selected) Cash
+        option(value="cheque", selected) Cheque
+        option(value="overdraft", selected) Bank Overdraft
+      .muted
+
+    //- Stock Settings
+    section
+      h2 Stock Settings
+      label Default Quality Levels
+      input#qualityLevels(type="text", name="stock", value="High, Medium, Low")
+      label Enable Optional Fields
+      select#optionalFields(multiple, size="2")
+        option(value="color", selected) Color
+        option(value="measurements", selected) Measurements
+      .muted Select which stock attributes should be required
+
+    //- User & Role Settings
+    section
+      h2 User & Role Settings
+      #roles.roles
+      button.add(onclick="addUser()") + Add User
+
+    //- Data Management
+    section
+      h2 Data Management
+      button(onclick="exportData()") Export Settings
+      input#importFile(type="file", name="data", accept=".json")
+      button.danger(onclick="resetSettings()") Reset to Defaults
+
+    button.save(onclick="saveSettings()") Save Settings
+
+block scripts
+  script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
+  script(src="/js/settings.js")

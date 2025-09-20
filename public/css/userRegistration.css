@@ -1,13 +1,19 @@
 /* Background */
 body {
- background: #06351f; 
+ background: #023047; 
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #e5eaf0;
+}
+.logo-oval{
+  
+  object-fit:cover;
+  border-radius: 50%;
 }
 
 /* Card */
 .card {
   border: none;
-  background: #5b3a29;
+  background: #94a1b2;
   max-width: 400px;
   margin: 50px auto;
   border-radius: 12px;
@@ -16,14 +22,14 @@ body {
 /* Title */
 .card h2 {
   font-weight: 700;
-  color:#708090;
+  color:#023047;
   text-align: center;
 }
 
 /* Labels */
 .form-label {
   font-weight: 500;
-  color:#708090;
+  color:#023047;
 }
 
 /* Inputs */
@@ -33,41 +39,49 @@ body {
   padding: 10px 12px;
   border: 1px solid #ddd;
   transition: 0.3s;
-  background-color: antiquewhite;
+  background-color: #e5eaf0;
 }
 
 .form-control:focus,
 .form-select:focus {
-  border-color: #198754;
-  box-shadow: 0 0 6px rgba(25, 135, 84, 0.4);
+  border-color: #94a1b2;
+  box-shadow: 0 0 6px #94a1b2(25, 135, 84, 0.4);
 }
-
+.login{
+  color: #023047;
+  text-decoration: none;
+  margin-left: 20px;
+}
+.login:hover{
+  color: #e5eaf0;
+}
 /* Button */
 .btn-success {
   border-radius: 0.75rem;
   font-weight: 600;
   padding: 12px;
-  box-shadow: 0 4px 10px rgba(25, 135, 84, 0.3);
+  box-shadow: 0 4px 10px #94a1b2(25, 135, 84, 0.3);
   transition: 0.3s;
     color: #babdbf;
+    background-color: #023047;
 }
 
 .btn-success:hover {
-  background-color: #157347;
+  background-color: #023047;
   box-shadow: 0 6px 14px rgba(25, 135, 84, 0.4);
   transform: translateY(-2px);
 }
 .btn-outline-primary{
   border-radius: 0.75rem;
   font-weight: 600;
-  box-shadow: 0 4px 10px rgba(25, 135, 84, 0.3);
+  box-shadow: 0 4px 10px #94a1b2(25, 135, 84, 0.3);
   transition: 0.3s;
-  background-color: #157347;
+  background-color: #023047;
   color: #babdbf;
-  border:#157347
+  border:#023047
 }
 .btn-outline-primary:hover {
-  background-color: #06351f;;
-  box-shadow: 0 6px 14px rgba(25, 135, 84, 0.4);
+  background-color: #023047;
+  box-shadow: 0 6px 14px #94a1b2(25, 135, 84, 0.4);
   transform: translateY(-2px);
 }

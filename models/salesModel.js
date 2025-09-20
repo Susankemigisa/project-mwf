@@ -9,11 +9,19 @@ const salesSchema = new mongoose.Schema({
             type: String,
             required: true
           },
+    productType:{
+            type: String,
+            required: true
+          },
    quantity:{
             type: Number,
             require:true
           },
    unitPrice:{
+            type: Number,
+            required: true
+          },
+  totalPrice:{
             type: Number,
             required: true
           },
@@ -27,13 +35,16 @@ const salesSchema = new mongoose.Schema({
             required: true,
           },
     salesAgent:{
-            type: String,
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "UserModel",
             required: true,
           },
-    transportIncluded:{
-            type: String,
-            required: true,
-          },
+transportIncluded: {
+  type: Boolean,
+  enum: ["Included", "Not Included"],
+  default: false,
+}
+
         
         });
         

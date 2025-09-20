@@ -1,0 +1,50 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title #{title} | MWF System
+
+    link(rel="stylesheet", href="/css/layout.css")
+    block styles
+    script(src="https://cdn.jsdelivr.net/npm/chart.js")
+
+  body
+    .dashboard-layout
+      //- 📌 Sidebar
+      aside.sidebar#sidebar
+        .img.d-flex.align-items-center
+          img(src="/images/lg.jpg", alt="MWF Logo", width="60", height="60", class="logo-oval me-2")
+          h2.mb-0 MAYONDO WOOD AND FURNITURE LIMITED
+
+        ul.menu
+          li: a(href="/dashboard" class=(title=="Dashboard" ? "active" : "")) 📊 Dashboard
+          li: a(href="/Addstock" class=(title=="registerStock" ? "active" : "")) 🏗️ Stock
+          li: a(href="/stocklist" class=(title=="stockTable" ? "active" : "")) 📦 Stock Table
+          li: a(href="/recordSale" class=(title=="Sales" ? "active" : "")) 💰 Sales
+          li: a(href="/salesTable" class=(title=="SalesTable" ? "active" : "")) 🧾 View Sales
+          li: a(href="/users" class=(title=="Register" ? "active" : "")) 👤 Register User
+          li: a(href="/userTable" class=(title=="Users" ? "active" : "")) 👥 View Users
+          li: a(href="/addProduct" class=(title=="Products" ? "active" : "")) 🛍️ Products
+          li: a(href="/productsTable" class=(title=="availableProducts" ? "active" : "")) 🛒 View Products
+          li: a(href="/" class=(title=="landingPage" ? "active" : "")) 🏠 Index
+          li: a(href="/login" class=(title=="Login" ? "active" : "")) 🔑 Login
+          li: a(href="/reports" class=(title=="managerReports" ? "active" : "")) 📑 Reports
+          li: a(href="/settings" class=(title=="Settings" ? "active" : "")) ⚙️ Settings
+        button#logoutBtn.logout-btn.mt-auto Log Out
+
+      //- 📌 Main Content
+      .main-content
+        //- Header
+        header.topbar
+          button#menuToggle.menu-btn ☰
+          h1.page-title #{title}
+
+        section.page-container
+          block content
+
+        footer.footer
+          p &copy; #{new Date().getFullYear()} MWF System. All rights reserved.
+
+    script(src="/js/main.js")
+    block scripts

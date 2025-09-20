@@ -7,7 +7,7 @@ router.get("/login", (req, res) => {
 });
 
 router.post("/login",
-  passport.authenticate("local", { failureRedirect: "/login" }),
+  passport.authenticate("local", { failureRedirect: "/login"}),
   (req, res) => {
     req.session.user = req.user;
     if (req.user.role === "Manager") {

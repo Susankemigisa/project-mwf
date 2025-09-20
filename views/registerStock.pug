@@ -1,74 +1,58 @@
-meta(charset="UTF-8")
-meta(name="viewport", content="width=device-width,initial-scale=1")
-title MWF Stock Registration
-link(rel="stylesheet", href="/css/registerStock.css")
-//-  Navigation Bar 
-nav.navbar
+extends layout
+
+block styles
+  link(rel="stylesheet", href="/css/registerStock.css")
+
+block content
   .container
-    a.logo(href="#") MWF System
-    ul.nav-links
-      li
-        a(href="login.html") Login
-      li
-        a.active(href="stockTable.html") View Stock
-      li
-        a(href="sales.html") Sales
-      li
-        a(href="managerReport.html") Reports
-      li
-        a(href="managerDashboard.html") Dashboard
-      li
-        a(href="settings.html") Settings
-      li
-        a.active(href="salesTable.html") View sales
-      li
-        a.active(href="registeredUsers.html") View users
-      li
-        a(href="products.html") Products
-      li
-        a.active(href="availableProducts.html") Available products
-      li
-        button#logoutBtn.logout-btn Log Out
-//-  Stock Registration Form 
-.container
-  .form-card
-    h2 Register New Stock
-    form#stockForm(action="/Addstock", method="post")
-      label Product Name
-      select#productName(name="productName", required)
-        option(value) Select type
-        option(value="Timber") Timber
-        option(value="Hardwood") Hardwood
-        option(value="Softwood") Softwood
-        option(value="Poles") Poles
-        option(value="Chairs") Chairs
-        option(value="Tables") Tables
-      label Product Type
-      select#productType(name="productType", required)
-        option(value) Select type
-        option(value="Wood") Wood
-        option(value="Furniture") Furniture
-      label Supplier Name
-      input#supplierName(type="text", name="supplierName")
-      label Date
-      input#date(type="date", name="date", required)
-      label Quantity
-      input#quantity(type="number", name="quantity", min="1", required)
-      label Cost Price
-      input#costPrice(type="number", name="costPrice", step="0.01", required)
-      label Selling Price
-      input#sellingPrice(type="number", name="sellingPrice", step="0.01", required)
-      label Quality
-      select#quality(type="text", name="quality")
-        option(value="")
-        option(value="High") High
-        option(value="Medium") Medium
-        option(value="Low") Low
-      label Color (optional)
-      input#color(type="text", name="color")
-      label Measurements (optional)
-      input#measurements(type="number", name="measurements")
-      button(type="submit") Save Stock
-script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
-//-  Script only for this page 
-script(src="/js/registerStock.js")
+    .form-card
+      h2 Register New Stock
+      form#stockForm(action="/Addstock", method="post")
+        label(for="productName") Product Name
+        select#productName(name="productName", required)
+          option(value="") -- Select type --
+          option(value="Timber") Timber
+          option(value="Hardwood") Hardwood
+          option(value="Softwood") Softwood
+          option(value="Poles") Poles
+          option(value="Chairs") Chairs
+          option(value="Tables") Tables
+
+        label(for="productType") Product Type
+        select#productType(name="productType", required)
+          option(value="") -- Select type --
+          option(value="Wood") Wood
+          option(value="Furniture") Furniture
+
+        label(for="supplierName") Supplier Name
+        input#supplierName(type="text", name="supplierName")
+
+        label(for="date") Date
+        input#date(type="date", name="date", required)
+
+        label(for="quantity") Quantity
+        input#quantity(type="number", name="quantity", min="1", required)
+
+        label(for="costPrice") Cost Price
+        input#costPrice(type="number", name="costPrice", step="0.01", required)
+
+        label(for="sellingPrice") Selling Price
+        input#sellingPrice(type="number", name="sellingPrice", step="0.01", required)
+
+        label(for="quality") Quality
+        select#quality(name="quality")
+          option(value="") -- Select quality --
+          option(value="High") High
+          option(value="Medium") Medium
+          option(value="Low") Low
+
+        label(for="color") Color (optional)
+        input#color(type="text", name="color")
+
+        label(for="measurements") Measurements (optional)
+        input#measurements(type="number", name="measurements")
+
+        button(type="submit") Save Stock
+
+block scripts
+  script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")

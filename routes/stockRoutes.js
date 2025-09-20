@@ -44,14 +44,13 @@ router.post("/deletestock", async(req, res)=>{
     res.status(400).send('Unable to delete item from database')
   }
 })
-// updatingstock
-router.get('/editstock/:id', async (req, res) => {
+router.post("/deletestock", async (req, res) => {
   try {
-      const item = await StockModel.findById(req.params.id)
-      console.log(item._id)
-  res.render("editStock", {item})
+    await StockModel.deleteOne({ _id: req.body.id });
+    res.redirect("/stocklist");
   } catch (error) {
-    console.error(error)
+    console.error("Error deleting stock:", error.message);
+    res.status(400).send("Unable to delete item from database");
   }
 });
 router.put('/editstock/:id', async (req, res) => {
